@@ -34,7 +34,9 @@
               <ul v-for="skill in app.skills" :key="skill.id">
                 <li>
                   <strong>{{ skillList[skill-1].skill }}</strong>
-                  <p class="skill-helper" v-if="skillList[skill-1].options" :set="randSkill = getRand(skillList[skill-1].options)">🦮 <a :href="randSkill">{{ randSkill }}</a></p>
+                  <p v-if="skillList[skill-1].options" :set="randSkill = getRand(skillList[skill-1].options)">
+                    🦮 <a :href="randSkill">{{ randSkill }}</a>
+                  </p>
                 </li>
               </ul>
             </div>
@@ -61,21 +63,26 @@ export default {
     // Update filtered application list based on skills selected
     function generateFilteredAppList() {
       filteredAppList.value = [];
-      for (let i = 0; i < appList.length; i++) {
-        if (checkArrIncludesEvery(appList[i].skills, selectedSkills.value) == true)
-          filteredAppList.value.push(appList[i]);
+
+      for (const app of appList) {
+        const appSkillsArray = app.skills;
+        const selectedSkillsArray = selectedSkills.value;
+
+        if (hasAllSkills(appSkillsArray, selectedSkillsArray)) {
+          filteredAppList.value.push(app);
+        }
       }
     }
 
     // Check if a given array contains every element in another array.
     // Returns boolean
-    function checkArrIncludesEvery(comp, target) {
-      return target.every(f => comp.includes(f));
+    function hasAllSkills(appSkills, selectedSkills) {
+      return selectedSkills.every(f => appSkills.includes(f));
     }
-
+    
     // Get a random item from an array
     function getRand(value) {
-      var keys = Object.keys(value);
+      let keys = Object.keys(value);
       return value[keys[keys.length * Math.random() << 0]];
     }
 
