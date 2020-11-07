@@ -4,8 +4,6 @@ This application demonstrates how to create a simple project idea generator usin
 
 ## Running the application
 
-### Client
-
 Clone the repository, install the dependencies, and run the project:
 
 ```bash
@@ -15,11 +13,9 @@ npm install
 npm run serve
 ```
 
-View at [http://localhost:8080](http://localhost:8080)
+View your app at [http://localhost:8080](http://localhost:8080).
 
-### Server
-
-Clone and run the [Express API repo](https://github.com/auth0-blog/app-generator-api):
+Next, clone and run the [Express API repo](https://github.com/auth0-blog/app-generator-api):
 
 ```bash
 git clone git@github.com:auth0-blog/app-generator-api.git
