@@ -2,6 +2,8 @@
 
 This application demonstrates how to create a simple project idea generator using the Vue 3 Composition API. If you'd like more information about how to build it, check out [Vue Composition API Tutorial: Build a Project Idea Generator](https://auth0.com/blog/vue-composition-api-tutorial).
 
+![Vue 3 project generator](https://cdn.auth0.com/blog/vue-3-tutorial/project-idea-generator.png)
+
 ## Running the application
 
 Clone the repository, install the dependencies, and run the project:
